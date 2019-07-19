@@ -12,25 +12,24 @@ public class ArrOperation {
 	 * @return the index at which the array is split
 	 */
 	int splitArray(int[] arr) {
-		if(arr.length == 0) {
+		int len = arr.length;
+		if(len == 0) {
 			throw new AssertionError();
 		}
+		
 		int sum = 0;
 		int totalSum = 0;
 		int j = 0;
-		for(int i = 0 ; i<arr.length ; i++){
+		for(int i = 0 ; i<len ; i++){
 			totalSum += arr[i];
 		}
+		
 		if(totalSum % 2 == 0){
-			while(sum != totalSum/2 && j<arr.length){
+			while(sum != totalSum/2 && j<len){
 				sum += arr[j];
 				j++;
 			}
-			if(sum == (totalSum/2)){
-				return (j);
-			}else{
-				return -1;
-			}
+			return (sum == (totalSum/2)) ? j : -1;
 		}else{
 			return -1;
 		}
@@ -43,7 +42,7 @@ public class ArrOperation {
 	 * @param Y follows every occurrence of X
 	 * @return resultant array
 	 */
-	int[] fixXY(int[]arr , int X , int Y) {
+	int[] fixXY(int[] arr , int X , int Y) {
 		if(arr.length == 0) {
 			throw new AssertionError();
 		}
@@ -58,9 +57,11 @@ public class ArrOperation {
 				throw new AssertionError();
 			}
 		}
+		
 		if(arr[arr.length-1] == X) {
 			throw new AssertionError();
 		}
+		
 		for(int index = 0 ; index<indexX.length ; index++) {
 			int swap = arr[indexX[index]+1];
 			arr[indexX[index]+1] = arr[indexY[index]];
@@ -76,16 +77,19 @@ public class ArrOperation {
 	 * @param arr array to be passed
 	 * @return array containing index of every occurrence of item.
 	 */
-	int[] searchAllIndex(int item , int[]arr) {
+	int[] searchAllIndex(int item , int[] arr) {
+		int len = arr.length;
 		int count = 0;
 		int j = 0;
-		for(int i = 0 ; i<arr.length ; i++) {
+		for(int i = 0 ; i<len ; i++) {
 			if(arr[i] == item) {
 				count++;
 			}
+		
 		}
+		
 		int []index = new int[count];
-		for(int i = 0 ; i<arr.length ; i++) {
+		for(int i = 0 ; i<len ; i++) {
 			if(arr[i] == item) {
 				index[j] = i;
 				j++;
@@ -100,13 +104,15 @@ public class ArrOperation {
 	 * @param arr array to be passed
 	 * @return number of clumps
 	 */
-	int countClumps(int[]arr){
-		if(arr.length == 0) {
+	int countClumps(int[] arr){
+		int len = arr.length;
+		if(len == 0) {
 			throw new AssertionError();
-		}
+		} 
+		
 		boolean flag = false;
 		int clump = 0;
-		for(int i = 0 ; i<arr.length-1 ; i++){
+		for(int i = 0 ; i<len-1 ; i++){
 			if(arr[i] == arr[i+1]){
 				flag = true;
 			}else{
@@ -116,6 +122,7 @@ public class ArrOperation {
 				}
 			}
 		}
+		
 		if(flag){
 			clump++;
 		}
@@ -128,14 +135,16 @@ public class ArrOperation {
 	 * @param arr array to be passed
 	 * @return length of the largest mirror section
 	 */
-	int  maxMirror(int[]arr){
-		if(arr.length == 0) {
+	int  maxMirror(int[] arr){
+		int len = arr.length;
+		if(len == 0) {
 			throw new AssertionError();
 		}
+		
 		int maxCount = 0;
-		for(int i = 0 ; i<arr.length ; i++){
+		for(int i = 0 ; i<len ; i++){
 			int count = 0;
-			for(int j = arr.length-1 ; j >= 0 && i + count<arr.length ; j--){
+			for(int j = len-1 ; j >= 0 && i + count<len ; j--){
 				if(arr[i + count] == arr[j]){
 					count++;
 				}else{
