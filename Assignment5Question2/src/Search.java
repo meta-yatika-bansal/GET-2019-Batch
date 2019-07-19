@@ -15,14 +15,12 @@ public class Search {
 	 * @return index of the element in the array 
 	 */
 	int linearSearch(double[] array, double element){
-		if(array.length == 0){
+		int len = array.length;
+		if(len == 0 || index == len){
 			return -1;
 		}
-        if(index == array.length){
-        	return -1;
-        }
 		if(array[index] == element){
-			return (index + 1);
+			return index;
 		}else{
 			index++;
 			return linearSearch(array, element);
@@ -36,18 +34,12 @@ public class Search {
 	 * @return index of the element in the array 
 	 */
     int binarySearch(double[] array, double element, int firstIndex, int lastIndex){
-    	if(firstIndex < 0 || lastIndex < 0){
-    		return -1;
-    	}
-    	if(array.length == 0){
-			return -1;
-		}
-    	if(firstIndex > lastIndex){
+    	if(firstIndex < 0 || lastIndex < 0 || array.length == 0 || firstIndex > lastIndex){
     		return -1;
     	}
     	int mid = ((firstIndex + lastIndex)/2);
     	if(array[mid] == element){
-    		return (mid + 1);
+    		return mid;
     	}else {
     		if(array[mid] > element){
     			lastIndex = mid - 1;

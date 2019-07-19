@@ -33,11 +33,12 @@ public class LinearSearchTestCase {
 	@Parameterized.Parameters
 	public static Collection data() {
 		return Arrays.asList(new Object[][] {
-				{ 4, new double[]{78, 34, 100, -4, 0 }, -4},
-				{ 3, new double[]{12.5, 14, 13.2}, 13.2},
+				{ 3, new double[]{78, 34, 100, -4, 0 }, -4},
+				{ 2, new double[]{12.5, 14, 13.2}, 13.2},
 				{-1, new double[]{3, 7, 2, 9}, 10},
-				{ 2, new double[]{21, 56, 77}, 56},
-				{-1, new double[]{}, 0}
+				{ 1, new double[]{21, 56, 77}, 56},
+				{-1, new double[]{}, 0},
+				{ 0, new double[]{6, 6, 6, 6}, 6}
 		});
 	}
 
