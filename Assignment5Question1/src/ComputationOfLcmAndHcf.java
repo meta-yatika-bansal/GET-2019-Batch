@@ -2,7 +2,7 @@
  * It Computes LCM and HCF of two numbers.
  * Input is the numbers.
  * Numbers are assumed to be positive Integers.
- * Output is the HCF and LCM of numbers.
+ * Output is the HCF /LCM of numbers.
  * @since 18-July-2019
  */
 public class ComputationOfLcmAndHcf {

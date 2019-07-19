@@ -1,5 +1,4 @@
-/*
- * Test Class for HCF Method
+* Test Class for HCF Method
  */
 import static org.junit.Assert.*;
 
@@ -35,7 +34,8 @@ public class HcfTestCase {
 		return Arrays.asList(new Object[][] {
 				{ 1, 2, 3 },
 				{ 13, 13, 13},
-				{ 13, 13, 26}
+				{ 13, 13, 26},
+				{ 1, 1, 5}
 		});
 	}
 
