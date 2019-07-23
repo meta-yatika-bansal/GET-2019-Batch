@@ -65,8 +65,9 @@ public final class Poly {
 	 * @return resultant polynomial
 	 */
 	Poly addPoly(Poly p1, Poly p2){
-		int[] coefficientAdd = new int[p1.coefficient.length + p2.coefficient.length];
-		int[] exponentAdd = new int[p1.coefficient.length + p2.coefficient.length];
+		int size = p1.coefficient.length + p2.coefficient.length;
+		int[] coefficientAdd = new int[size];
+		int[] exponentAdd = new int[size];
 		int k = exponentAdd.length;
 		boolean flag = false;
 
@@ -100,8 +101,9 @@ public final class Poly {
 	 * @return resultant polynomial
 	 */
 	Poly multiply(Poly p1, Poly p2){
-		int[] coefficient = new int[(p1.coefficient.length)*(p2.coefficient.length)];
-		int[] exponent = new int[(p1.coefficient.length)*(p2.coefficient.length)];
+		int size = (p1.coefficient.length)*(p2.coefficient.length);
+		int[] coefficient = new int[size];
+		int[] exponent = new int[size];
 		int k = 0;
 		boolean flag = false;
 
