@@ -55,31 +55,43 @@ public final class SparseMatrix {
 	 * @return resultant object
 	 */
 	public SparseMatrix add(SparseMatrix sparseMatrix1, SparseMatrix sparseMatrix2) {
-		int[][] matrix = new int[resMatrix.length][3];
-		matrix = sparseMatrix2.resMatrix;
+		int size = sparseMatrix1.resMatrix.length + sparseMatrix2.resMatrix.length;
+		int[][] matrix = new int[size][3];
+
+		for(int i = 0 ; i < sparseMatrix2.resMatrix.length ; i++){
+			for(int a = 0 ; a< sparseMatrix2.resMatrix[0].length ; a++){
+				matrix[i][a] = sparseMatrix2.resMatrix[i][a];
+			}
+		}
+
 		int j = 0;
-		int k= 0;
+		int k = 0;
 		boolean flag = false;
-        
+
 		for(k = 0 ; k < sparseMatrix1.resMatrix.length ; k++) {
 			for(j = 0 ; j < sparseMatrix2.resMatrix.length ; j++) {
 				if(sparseMatrix1.resMatrix[k][0] == sparseMatrix2.resMatrix[j][0]
 						&& sparseMatrix1.resMatrix[k][1]==sparseMatrix2.resMatrix[j][1]) {
 					flag = true;
 					matrix[j][2] += sparseMatrix1.resMatrix[k][2];
-					System.out.println(matrix[j][2]);
 				}
 			}
-			
+
 			if(!flag) {
 				matrix[j][0] = sparseMatrix1.resMatrix[k][0];
 				matrix[j][1] = sparseMatrix1.resMatrix[k][1];
 				matrix[j][2] = sparseMatrix1.resMatrix[k][2];
-				j++;
 			}
 		}
-		
-		SparseMatrix sparse = new SparseMatrix(matrix);
+
+		int[][] matrix1 = new int[j+1][3];
+		for(int i = 0 ; i < j+1 ; i++){
+			for(int a = 0 ; a < 3 ; a++){
+				matrix1[i][a] = matrix[i][a];
+			}
+		}
+
+		SparseMatrix sparse = new SparseMatrix(matrix1);
 		return sparse;
 	}
    
@@ -89,11 +101,11 @@ public final class SparseMatrix {
 	 * @param sparseMatrix2 is the second input object of this class
 	 * @return resultant object
 	 */
-	/*public SparseMatrix multiply(SparseMatrix sparseMatrix1, SparseMatrix sparseMatrix2) {
+	public SparseMatrix multiply(SparseMatrix sparseMatrix1, SparseMatrix sparseMatrix2) {
 		for(int i=0;i<sparseMatrix1.resMatrix.length;i++) {
 			for(int j=0;j<sparseMatrix1.resMatrix[0].length;j++) {
 
 			}
 		}
-	}*/
+	}
 }
