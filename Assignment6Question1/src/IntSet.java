@@ -21,7 +21,7 @@ public final class IntSet {
 	private Boolean isSet(){
 		for(int i = 0 ; i < array.length ; i++) {
 			for(int j = i+1 ; j < array.length ; j++) {
-				if(array[i]==array[j]) {
+				if(array[i] == array[j]) {
 					return false;
 				}
 			}
@@ -39,7 +39,7 @@ public final class IntSet {
 	 */
 	private Boolean search(int x){
 		for(int i = 0 ; i <size() ; i++){
-			if(array[i]==x){
+			if(array[i] == x){
 				return true;
 			}
 		}
@@ -69,7 +69,6 @@ public final class IntSet {
 			return array.length;
 		}else {
 			throw new AssertionError();
-
 		}
 	}
     
@@ -89,7 +88,6 @@ public final class IntSet {
 			return true;
 		}else {
 			throw new AssertionError();
-
 		}
 	}
     
@@ -99,9 +97,10 @@ public final class IntSet {
 	 */
 	public int[] getComplement(){
 		if(isSet()) {
-			int[] arrayComplement = new int[1000-size()];
+			final int MAX = 1000 ;
+			int[] arrayComplement = new int[MAX - size()];
 			int j = 0;
-			for(int i = 1 ; i <= 1000 ; i++){
+			for(int i = 1 ; i <= MAX ; i++){
 				if(!isMember(i)){
 					arrayComplement[j]=i;
 					j++;
@@ -111,7 +110,6 @@ public final class IntSet {
 			return arrayComplement;
 		}else {
 			throw new AssertionError();
-
 		}
 	}
     
@@ -123,7 +121,8 @@ public final class IntSet {
 	 */
 	public int[] union(IntSet s1, IntSet s2){
 		if(s1.isSet() && s2.isSet()) {
-			int[] unionArray = new int[s1.size()+s2.size()];
+			int totalSize = s1.size()+s2.size();
+			int[] unionArray = new int[totalSize];
 			int k = 0;
 			for(int i = 0 ; i < s1.size() ; i++) {
 				if(!s2.search(s1.array[i])) {
@@ -145,7 +144,6 @@ public final class IntSet {
 			return array;
 		}else {
 			throw new AssertionError();
-
 		}
 	}
 }
