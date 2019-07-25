@@ -51,7 +51,9 @@ public class Zoo {
 					}
 				}
 			}
-		}catch(Exception e) {}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		return false;
 	}
 
@@ -76,7 +78,9 @@ public class Zoo {
 					}
 				}
 			}
-		}catch(Exception e) {}
+		}catch(Exception e) {
+			System.out.println(e);
+		}
 		return false;
 	}
 

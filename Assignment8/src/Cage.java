@@ -27,11 +27,7 @@ public class Cage {
 			numberOfAnimal++;
 			return true;
 		}else{
-			try {
-				throw new Exception("Full Capacity");
-			}catch(Exception e) {
-				System.out.println("Cannot add more animals");
-			}
+			System.out.println("Cannot add more animals");
 			return false;
 		}
 	}
@@ -50,11 +46,7 @@ public class Cage {
 			numberOfAnimal--;
 			return true;
 		}else{
-			try {
-				throw new Exception("Empty");
-			}catch(Exception e) {
-				System.out.println("Cannot remove animal from zoo!");
-			}
+			System.out.println("Cannot remove animal from zoo!");
 			return false;
 		}
 	}

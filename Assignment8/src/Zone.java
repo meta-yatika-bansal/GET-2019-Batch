@@ -11,7 +11,7 @@ public class Zone {
 	boolean hasCanteen;
 	List<Cage> cages = new ArrayList<>();
 
-	public Zone(String category, int maxCages, 	boolean hasPark, boolean hasCanteen){
+	public Zone(String category, int maxCages, boolean hasPark, boolean hasCanteen){
 		this.category = category;
 		this.maxCages = maxCages;
 		this.hasPark = hasPark;
@@ -28,11 +28,7 @@ public class Zone {
 			cages.add(new Cage(typeOfAnimal, maxAnimals));
 			numberOfCage++;
 		}else{
-			try {
-				throw new Exception("Full Capacity");
-			}catch(Exception e) {
-				System.out.println("Cannot add more zones");
-			}
+			System.out.println("Cannot add more zones");
 		}
 	}
 }
