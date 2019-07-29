@@ -10,6 +10,7 @@ public class Triangle implements Shape{
 	int side2;
 	int base;
 	Point origin;
+	public ShapeType type = ShapeType.Triangle;
 
 	Triangle(Point point, List<Integer> list){
 		side1 = list.get(0);
@@ -18,26 +19,42 @@ public class Triangle implements Shape{
 		origin = point;
 	}
 	
-	public ShapeType getShape(){
-		return type1;
+	/**
+	 * Returns the Shape type of object
+	 */
+	public String getType(){
+		return type.toString();
 	}
 
+	/**
+	 * Returns Area of Shape
+	 */
 	@Override
 	public double getArea() {
 		double height = Math.sqrt((side2*side2)-(base*base));
 		return 0.5*base*height;
 	}
 
+	/**
+	 * Returns Perimeter of Shape
+	 */
 	@Override
 	public double getPerimeter() {
 		return (base + side1 + side2);
 	}
 
+	/**
+	 * Returns origin of Shape
+	 */
 	@Override
 	public Point getOrigin() {
 		return origin;
 	}
 
+	/**
+	 * Checks whether a point is enclosed by Shape
+	 * @param point is the point to be enclosed
+	 */
 	@Override
 	public boolean isPointEnclosed(Point point) {
 		Point pointBase = point;
@@ -58,6 +75,13 @@ public class Triangle implements Shape{
 		}	
 	}
 
+	/**
+	 * Finds area of smaller triangles in Shape
+	 * @param a is the baseLength
+	 * @param b is the point used to calculate height
+	 * @param point is the mid-point of base
+	 * @return area
+	 */
 	public double AreaOfSmallerTriangles(double a, Point b , Point point){
 		double distance = Math.sqrt((b.x - point.x)*(b.x - point.x) + (b.y - point.y)*(b.y - point.y));
 		return 0.5*a*distance;
