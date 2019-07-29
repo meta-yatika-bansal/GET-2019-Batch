@@ -13,7 +13,7 @@ public final class SparseMatrix {
 	public int[][] getMatrix(){
 		return resMatrix;
 	}
-    
+
 	/**
 	 * Computes Transpose of the Sparse Matrix
 	 * @param sparseMatrix is the input object of this class
@@ -27,10 +27,10 @@ public final class SparseMatrix {
 			sparseMatrix.resMatrix[k][0] = sparseMatrix.resMatrix[k][1];
 			sparseMatrix.resMatrix[k][1] = swap;
 		}
-		
+
 		return sparseMatrix;
 	}
-    
+
 	/**
 	 * Checks if the input matrix is Symmetric
 	 * @param sparseMatrix is the input object of this class
@@ -44,10 +44,10 @@ public final class SparseMatrix {
 				}
 			}
 		}
-		
+
 		return true;
 	}
-    
+
 	/**
 	 * Performs addition of two Sparse Matrices
 	 * @param sparseMatrix1 is the first input object of this class
@@ -94,7 +94,7 @@ public final class SparseMatrix {
 		SparseMatrix sparse = new SparseMatrix(matrix1);
 		return sparse;
 	}
-   
+
 	/**
 	 * Performs Multiplication of two Sparse Matrices
 	 * @param sparseMatrix1 is the first input object of this class
@@ -102,10 +102,38 @@ public final class SparseMatrix {
 	 * @return resultant object
 	 */
 	public SparseMatrix multiply(SparseMatrix sparseMatrix1, SparseMatrix sparseMatrix2) {
-		for(int i=0;i<sparseMatrix1.resMatrix.length;i++) {
-			for(int j=0;j<sparseMatrix1.resMatrix[0].length;j++) {
+		sparseMatrix2 = sparseMatrix2.transpose(sparseMatrix2);
+		int i, j;
+		int k = 0;
 
-			}
+		int[][] resMatrix1 = new int[sparseMatrix1.resMatrix.length][sparseMatrix2.resMatrix.length];
+		SparseMatrix multiply = new SparseMatrix(resMatrix1);
+		for (i = 0; i < sparseMatrix1.resMatrix.length;) {
+			int row = sparseMatrix1.resMatrix[i][0];
+			for (j = 0; j < sparseMatrix2.resMatrix.length;) {
+				int col = sparseMatrix2.resMatrix[j][0];
+				int sum = 0;
+				while (i < sparseMatrix1.resMatrix.length && resMatrix[i][0] == row
+						&& j < sparseMatrix2.resMatrix.length && sparseMatrix2.resMatrix[j][0] == col) {
+
+					if (sparseMatrix1.resMatrix[i][1] < sparseMatrix2.resMatrix[j][1]) {
+						i++;
+					} else if (sparseMatrix1.resMatrix[i][1] > sparseMatrix2.resMatrix[j][1]) {
+						j++;
+					} else {
+						sum += sparseMatrix1.resMatrix[i++][2] * sparseMatrix2.resMatrix[j++][2];
+					}
+				}
+
+				if (sum != 0) {
+					multiply.resMatrix[k][0] = row;
+					multiply.resMatrix[k][1] = col;
+					multiply.resMatrix[k][2] = sum;
+					k++;
+				}
+			}			
 		}
+
+		return multiply;
 	}
 }
