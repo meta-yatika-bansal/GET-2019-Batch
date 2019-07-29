@@ -12,7 +12,6 @@ public class Circle implements Shape{
 	Circle(Point point, List<Integer> list){
 		radius = list.get(0);
 		origin = point;
-
 	}
 
 	/**
@@ -52,14 +51,19 @@ public class Circle implements Shape{
 	 */
 	@Override
 	public boolean isPointEnclosed(Point point) {
-		Point center = point;
-		center.x = origin.x + radius;
-		center.y = origin.y + radius;
-		double distance = Math.sqrt((point.x-center.x)*(point.x-center.x) 
-				+ (point.y-center.y)*(point.y-center.x));
-		if(distance <= radius){
-			return true;
-		}else{
+		try{
+			Point center = point;
+			center.x = origin.x + radius;
+			center.y = origin.y + radius;
+			double distance = Math.sqrt((point.x-center.x)*(point.x-center.x) 
+					+ (point.y-center.y)*(point.y-center.x));
+			if(distance <= radius){
+				return true;
+			}else{
+				return false;
+			}
+		}catch(Exception e){
+			System.out.println("isPointEnclosed");
 			return false;
 		}
 	}

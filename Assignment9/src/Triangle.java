@@ -18,7 +18,7 @@ public class Triangle implements Shape{
 		base = list.get(2);
 		origin = point;
 	}
-	
+
 	/**
 	 * Returns the Shape type of object
 	 */
@@ -57,22 +57,27 @@ public class Triangle implements Shape{
 	 */
 	@Override
 	public boolean isPointEnclosed(Point point) {
-		Point pointBase = point;
-		pointBase.x = origin.x + base/2;
-		pointBase.y = origin.y ;
-		double a1 = AreaOfSmallerTriangles(base, point, pointBase );
-		pointBase.x = origin.x + side1/2;
-		pointBase.y = origin.y + side1/2;
-		double a2 = AreaOfSmallerTriangles(side1, point, pointBase );
-		pointBase.x = origin.x - side2/2;
-		pointBase.y = origin.y + side2/2 ;
-		double a3 = AreaOfSmallerTriangles(side2, point, pointBase );
-		double a = getArea();
-		if(a == (a1 + a2 + a3)) {
-			return true;
-		}else {
+		try{
+			Point pointBase = point;
+			pointBase.x = origin.x + base/2;
+			pointBase.y = origin.y ;
+			double a1 = AreaOfSmallerTriangles(base, point, pointBase );
+			pointBase.x = origin.x + side1/2;
+			pointBase.y = origin.y + side1/2;
+			double a2 = AreaOfSmallerTriangles(side1, point, pointBase );
+			pointBase.x = origin.x - side2/2;
+			pointBase.y = origin.y + side2/2 ;
+			double a3 = AreaOfSmallerTriangles(side2, point, pointBase );
+			double a = getArea();
+			if(a == (a1 + a2 + a3)) {
+				return true;
+			}else {
+				return false;
+			}	
+		}catch(Exception e){
+			System.out.println("isPointEnclosed");
 			return false;
-		}	
+		}
 	}
 
 	/**
@@ -83,7 +88,12 @@ public class Triangle implements Shape{
 	 * @return area
 	 */
 	public double AreaOfSmallerTriangles(double a, Point b , Point point){
-		double distance = Math.sqrt((b.x - point.x)*(b.x - point.x) + (b.y - point.y)*(b.y - point.y));
-		return 0.5*a*distance;
+		try{
+			double distance = Math.sqrt((b.x - point.x)*(b.x - point.x) + (b.y - point.y)*(b.y - point.y));
+			return 0.5*a*distance;
+		}catch(Exception e){
+			System.out.println("AreaOfSmallerTriangles");
+			return 0;
+		}
 	}
 }

@@ -22,10 +22,10 @@ public class ClassScreen extends Rectangle{
 	 */
 	public void addObject(String type, Point point, List<Integer> list) {
 		try{
-			Timestamp ts = new Timestamp(new Date().getTime());
+			Timestamp currentTime = new Timestamp(new Date().getTime());
 			Shape shape = Factory.createShape(type, point, list);
 			shapeObjects.add(shape);
-			time.add(ts);
+			time.add(currentTime);
 		}catch(Exception e){
 			System.out.println("addObject");
 		}
@@ -84,18 +84,6 @@ public class ClassScreen extends Rectangle{
 	}
 
 	/**
-	 * Swap function
-	 * @param shape1 is the first shape to be swapped
-	 * @param shape2 is the second shape to be swapped
-	 */
-	public void swapShape(Shape shape1, Shape shape2) {
-		Shape swap;
-		swap = shape1;
-		shape1 = shape2;
-		shape2 = swap;
-	}
-
-	/**
 	 * Finds the list of shapes enclosing a given point
 	 * @param point is the point to be enclosed
 	 * @return list of shapes enclosing given point
@@ -114,5 +102,17 @@ public class ClassScreen extends Rectangle{
 			System.out.println("enclosingPoint");
 			return null;
 		}
+	}
+	
+	/**
+	 * Swap function
+	 * @param shape1 is the first shape to be swapped
+	 * @param shape2 is the second shape to be swapped
+	 */
+	private void swapShape(Shape shape1, Shape shape2) {
+		Shape swap;
+		swap = shape1;
+		shape1 = shape2;
+		shape2 = swap;
 	}
 }

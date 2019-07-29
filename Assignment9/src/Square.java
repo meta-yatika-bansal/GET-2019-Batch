@@ -1,6 +1,6 @@
 /*
  * Square Class
- * Input will be side and origin of triangle
+ * Input will be side and origin of Square
  */
 import java.util.*;
 
@@ -13,14 +13,14 @@ public class Square implements Shape{
 		side = list.get(0);
 		origin = point;
 	}
-	
+
 	/**
 	 * Returns the Shape type of object
 	 */
 	public String getType(){
 		return type.toString();
 	}
-	
+
 	/**
 	 * Returns Area of Shape
 	 */
@@ -51,10 +51,15 @@ public class Square implements Shape{
 	 */
 	@Override
 	public boolean isPointEnclosed(Point point) {
-		if(((side + origin.x) >= point.x  && point.x>= origin.x ) &&
-				((side + origin.y) >= point.y  &&  point.y>= origin.y)){
-			return true;
-		}else{
+		try{
+			if(((side + origin.x) >= point.x  && point.x>= origin.x ) &&
+					((side + origin.y) >= point.y  &&  point.y>= origin.y)){
+				return true;
+			}else{
+				return false;
+			}
+		}catch(Exception e){
+			System.out.println("isPointEnclosed");
 			return false;
 		}
 	}

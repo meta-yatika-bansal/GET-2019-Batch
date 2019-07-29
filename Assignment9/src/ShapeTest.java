@@ -37,12 +37,12 @@ public class ShapeTest {
 
 	@Test
 	public void deleteObjectTest() {
-		screen.deleteObject("Circle", point, list);
+		screen.deleteObject("Triangle", point, list);
 	}
 
 	@Test
 	public void deleteObjectOfSpecificTypeTest() {
-		screen.deleteObjectOfSpecificType("Circle");
+		screen.deleteObjectOfSpecificType("Triangle");
 	}
 
 	@Test

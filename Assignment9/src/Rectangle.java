@@ -15,14 +15,14 @@ public class Rectangle implements Shape{
 		breadth = list.get(1);
 		origin = point;
 	}
-	
+
 	/**
 	 * Returns the Shape type of object
 	 */
 	public String getType(){
 		return type.toString();
 	}
-	
+
 	/**
 	 * Returns Area of Shape
 	 */
@@ -53,10 +53,15 @@ public class Rectangle implements Shape{
 	 */
 	@Override
 	public boolean isPointEnclosed(Point point) {
-		if(((length + origin.x) >= point.x  && point.x>= origin.x ) &&
-				((breadth + origin.y) >= point.y  &&  point.y>= origin.y)){
-			return true;
-		}else{
+		try{
+			if(((length + origin.x) >= point.x  && point.x>= origin.x ) &&
+					((breadth + origin.y) >= point.y  &&  point.y>= origin.y)){
+				return true;
+			}else{
+				return false;
+			}
+		}catch(Exception e){
+			System.out.println("isPointEnclosed");
 			return false;
 		}
 	}

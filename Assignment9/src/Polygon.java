@@ -16,14 +16,12 @@ public class Polygon implements Shape{
 		origin = point;
 	}
 
-
 	/**
 	 * Returns the Shape type of object
 	 */
 	public String getType(){
 		return type.toString();
 	}
-	
 
 	/**
 	 * Returns Area of Shape
@@ -55,25 +53,29 @@ public class Polygon implements Shape{
 	 */
 	@Override
 	public boolean isPointEnclosed(Point point) {
-		int total = 0;
-		for(int number = 1; number <= numberOfSides ; number++){
-			Point pointBase = point;
-			pointBase.x = origin.x + length/2;
-			pointBase.y = origin.y ;
-			double a1 = AreaOfSmallerTriangles(length, point, pointBase );
-			total += a1;
-			pointBase.y += length/2;  
-		}
-		
-		double a = getArea();
-		
-		if(a == total) {
-			return true;
-		}else {
+		try{
+			int total = 0;
+			for(int number = 1; number <= numberOfSides ; number++){
+				Point pointBase = point;
+				pointBase.x = origin.x + length/2;
+				pointBase.y = origin.y ;
+				double a1 = AreaOfSmallerTriangles(length, point, pointBase );
+				total += a1;
+				pointBase.y += length/2;  
+			}
+
+			double a = getArea();
+			if(a == total) {
+				return true;
+			}else {
+				return false;
+			}	
+		}catch(Exception e){
+			System.out.println("isPointEnclosed");
 			return false;
-		}	
+		}
 	}
-	
+
 	/**
 	 * Finds area of smaller triangles in Shape
 	 * @param a is the baseLength
@@ -82,7 +84,12 @@ public class Polygon implements Shape{
 	 * @return area
 	 */
 	public double AreaOfSmallerTriangles(double a, Point b , Point point){
-		double distance = Math.sqrt((b.x - point.x)*(b.x - point.x) + (b.y - point.y)*(b.y - point.y));
-		return 0.5*a*distance;
+		try{
+			double distance = Math.sqrt((b.x - point.x)*(b.x - point.x) + (b.y - point.y)*(b.y - point.y));
+			return 0.5*a*distance;
+		}catch(Exception e){
+			System.out.println("AreaOfSmallerTriangle");
+			return 0;
+		}
 	}
 }
