@@ -39,7 +39,7 @@ public class TestClass {
 	}
 	
 	@Test
-	public void loopExistTest2(){
+	public void loopNotExistTest2(){
 		assertEquals(false, list2.loopExists());
 	}
 }
