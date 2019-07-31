@@ -3,17 +3,17 @@
  * Exponent of each variable is assumed to be Integer
  * Variable is assumed to be a Character
  */
-class Node1{
+class NodeVar{
 	int exponent;
 	char variable;
-	Node1 next;
+	NodeVar next;
 }
 
 /*
  * Represents list of variables
  */
 public class Variable {
-	Node1 head = new Node1();
+	NodeVar head = new NodeVar();
 
 	/**
 	 * Adds variable to list of variables
@@ -22,8 +22,8 @@ public class Variable {
 	 */
 	public void addVariable(char variable, int exponent){
 		try{
-			Node1 node = new Node1();
-			Node1 n;
+			NodeVar node = new NodeVar();
+			NodeVar n;
 			node.exponent = exponent;
 			node.variable = variable;
 
@@ -45,7 +45,7 @@ public class Variable {
 	public int sumOfExponent(){
 		try{
 			int sum = 0;
-			for(Node1 n = head ; n.next != null ; n = n.next){
+			for(NodeVar n = head ; n.next != null ; n = n.next){
 				sum += n.next.exponent;
 			}
 
