@@ -37,6 +37,10 @@ public class LinkedList {
 	 */
 	public int[] rotateSublist(int l, int r, int n){
 		try{
+			if(l > r || l < 0 || r < 0 || l > size || r > size){
+				return null;
+			}
+
 			Node node;
 			int number = 1;
 			while(number <= n){

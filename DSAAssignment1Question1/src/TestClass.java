@@ -21,8 +21,13 @@ public class TestClass {
 	}
 
 	@Test
-	public void rotateSublistTest(){
+	public void rotateSublistPositiveTest(){
 		int[] array = {2, 5, 6, 3, 4, 7};
 		assertArrayEquals(array, list.rotateSublist(2, 5, 2));
+	}
+	
+	@Test
+	public void rotateSublistNegativeTest(){
+		assertArrayEquals(null, list.rotateSublist(10, 5, 2));
 	}
 }
