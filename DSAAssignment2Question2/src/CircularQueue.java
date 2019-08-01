@@ -40,6 +40,7 @@ public class CircularQueue implements Queue {
 		int item;
 		if(checkIfEmpty()){
 			System.out.println("Queue is empty!");
+			return -1;
 		}
 		if(f == SIZE-1){
 			f = 0;

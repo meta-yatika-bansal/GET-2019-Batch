@@ -27,10 +27,12 @@ public class TestClass {
 	@Test
 	public void deleteTest(){
 		assertEquals(2, queue.deleteFromQueue());
+		assertEquals(-1, queue1.deleteFromQueue());
 	}
 	
 	@Test
 	public void checkIfEmpty(){
 		assertEquals(true, queue1.checkIfEmpty());
+		assertEquals(false, queue.checkIfEmpty());
 	}
 }
