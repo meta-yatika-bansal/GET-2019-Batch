@@ -16,10 +16,10 @@ public class EvaluateInfix {
 		int operand2;
 		String result;
 		String PostfixExpression =  infixToPostfix(InfixExpression);
-		
-        if(PostfixExpression == null){
-        	throw new AssertionError();
-        }
+
+		if(PostfixExpression == null){
+			throw new AssertionError();
+		}
 		string = PostfixExpression.split(" ");
 
 		for(String token : string){
@@ -93,7 +93,7 @@ public class EvaluateInfix {
 				}else{
 					int precedenceToken = precedenceOfOperators(token);
 					while(precedenceToken <= precedenceOfOperators(stack.peek())){
-						if(precedenceToken == -1 || precedenceOfOperators(stack.peek()) == -1 ){
+						if(precedenceToken == -1){
 							return null;
 						}
 						PostfixExpression = PostfixExpression  + stack.pop()  + " ";
@@ -136,7 +136,7 @@ public class EvaluateInfix {
 		case "&&" : return 2;
 		case "||" : return 1;
 		default : System.out.println("Enter properly!");
-		          return -1;
+		return -1;
 		}
 	}
 }
