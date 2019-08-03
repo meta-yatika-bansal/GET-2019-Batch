@@ -1,10 +1,13 @@
 /*
  * Test Class
  */
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
 import org.junit.Test;
-import java.util.*;
 
 public class TestClass {
 	
@@ -12,14 +15,14 @@ public class TestClass {
 	int QUOTA_VIRAT = 4;
 	Heap heap = new Heap(5);
 	
-	@Test
+	@Before
 	public void addTest(){
 		Bowler[] bowler = new Bowler[5];
 		bowler[0] = new Bowler("A", 1);
-		bowler[0] = new Bowler("B", 2);
-		bowler[0] = new Bowler("C", 3);
-		bowler[0] = new Bowler("D", 4);
-		bowler[0] = new Bowler("E", 1);
+		bowler[1] = new Bowler("B", 2);
+		bowler[2] = new Bowler("C", 3);
+		bowler[3] = new Bowler("D", 4);
+		bowler[4] = new Bowler("E", 1);
 		heap.add(bowler);
 	}
 	

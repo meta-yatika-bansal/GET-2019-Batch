@@ -42,19 +42,19 @@ public class Heap {
 		try{
 			List<String> order = new ArrayList<String>();
 			while(quotaVirat != 0){
-				if(size != -1){
 					Bowler max = heap[0];
+					maxHeapify(0);
 					max.quota--;
 					quotaVirat--;
 					order.add(max.name);        
-					size--;
 					Bowler[] bowlerN = new Bowler[size];
-					for(int i =0; i< size ; i++){
-						bowlerN[i] = heap[i+1];
+					for(int i = 0; i < size ; i++){
+						bowlerN[i] = heap[i];
 					}
+					
+					size = -1;
 					add(bowlerN);
 				}
-			}
 
 			return order;
 		}catch(Exception e){
