@@ -74,8 +74,9 @@ public class ImplementDictionary implements Dictionary {
 	 */
 	@Override
 	public String getValue(String key) {
-		if(search(root, key) != null) {
-			return search(root, key).value;
+		Node n = search(root, key);
+		if(n != null) {
+			return n.value;
 		}
 
 		return null;
