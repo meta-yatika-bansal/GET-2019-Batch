@@ -85,7 +85,6 @@ public class GraphImplementation implements Graph {
 	@Override
 	public List<Edge> minimumSpanningTree() {
 		try{
-			int index = 0;
 			List<Edge> minimumSpanningTreeEdges = new ArrayList<Edge>();
 			Collections.sort(this.edgeList, Edge.sortByWeight);
 			HashMap<Integer, Integer> parentVertices = new HashMap<Integer, Integer>();
@@ -95,11 +94,7 @@ public class GraphImplementation implements Graph {
 			}
 
 			for(Edge edge : this.getEdgeList()) {
-				if(index>this.getNumberOfVertices()-1)
-				{
-					break;
-				}
-				else if(!isCycle(parentVertices,edge.getVertex1(),edge.getVertex2())) {
+				if(!isCycle(parentVertices,edge.getVertex1(),edge.getVertex2())) {
 					minimumSpanningTreeEdges.add(edge);			
 				}
 			}
