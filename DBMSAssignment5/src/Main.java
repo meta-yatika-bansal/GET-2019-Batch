@@ -17,7 +17,7 @@ public class Main {
 		orders = helper.getOrderDetails(id);
 		for(Order o : orders){
 			System.out.println(o.id);
-			System.out.println(o.date);
+			System.out.println(o.date.toString());
 			System.out.println(o.amount);
 		}
 
