@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class Helper{
 
@@ -25,7 +26,7 @@ public class Helper{
 			while(res.next()){
 				int o_id = res.getInt("order_id");
 				double o_amount = res.getDouble("order_amount");
-				String o_date = res.getDate("order_date").toString();
+				Date o_date = res.getDate("order_date");
 				orders.add(new Order(o_id,o_amount,o_date));
 			}	
 		} catch (SQLException e) {
