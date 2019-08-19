@@ -1,11 +1,13 @@
 /*
  * Represents order made by a user
  */
+import java.util.Date;
+
 public class Order {
 	
 	int id;
 	double amount;
-	String date;
+	Date date = new Date();
 	public Order() {}
 	
 	public Order(int id, double amount, String date) {
