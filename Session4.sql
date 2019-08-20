@@ -39,7 +39,7 @@ delimiter ;
 
 create procedure avgSale(in month int,in year int)
 begin
-select o.product_id,sum(o.quantity)
+select o.product_id,avg(o.quantity)
 from product_order as po inner join order_item as o on po.order_id = o.order_id
 where extract(month from order_date) = month
 and extract(year from order_date) = year
