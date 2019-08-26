@@ -4,6 +4,7 @@
 <title>Metacube Parking System</title>
 <script>
 
+	/*Validates the Fields in Registration Form*/
 	function validation() {
 		var isValid = true;
 		var name = document.forms["RegistrationForm"]["name"].value;
@@ -36,23 +37,24 @@
 		}
 	}
 	
+     /*Displays Price of Plans Available*/
      function showPrice(){
 		var option = document.forms["VehicleDetailForm"]["type"].value;
-		var d ;
-		var m ;
-		var y ;
+		var daily ;
+		var monthly ;
+		var yearly ;
 		if("cycle" == option){
-			d= 5;
-			m=100;
-			y=500;
+			daily= 5;
+			monthly=100;
+			yearly=500;
 		}else if("motor_cycle" == option){
-			d= 10 ;
-			m= 200;
-			y= 1000;
+			daily= 10 ;
+			monthly= 200;
+			yearly= 1000;
 		}else if("four_wheelers" == option){
-			d= 20 ;
-			m= 500;
-			y= 3500;
+			daily= 20 ;
+			monthly= 500;
+			yearly= 3500;
 		}
 		
 		document.getElementById("reg").innerHTML = "";
@@ -60,9 +62,9 @@
 		+"<p>1. Select Plans in (INR)</p>"
 		+"<select id = 'plan' align='center'>"
 		+ "<option selected >[Plans]</option>"
-		+" <option  value= '"+ d +"'/>" + d + " Daily</option>"
-		+ " <option value= '"+ m +"'/>" + m + " Monthly</option>"
-		+ " <option value= '"+ y +"'/>" + y + " Yearly</option>"
+		+" <option  value= '"+ daily +"'/>" + daily + " Daily</option>"
+		+ " <option value= '"+ monthly +"'/>" + monthly + " Monthly</option>"
+		+ " <option value= '"+ yearly +"'/>" + yearly + " Yearly</option>"
 		+" </select></br></br>"
 		+ "<p>2. Do You Want To Change Currency</p>"
 		+"<select id='currency' align='center'>"
@@ -74,6 +76,7 @@
 		+"</div>";
 	}
      
+      /* Displays Final Pass Price*/
      function getPass(){
     	 var plan = document.getElementById("plan").value;
     	 var curr= document.getElementById("currency").value;
