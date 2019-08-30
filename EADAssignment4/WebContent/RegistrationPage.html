@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+</head>
+<body>
+	<div align="center" id="reg">
+		<form name="RegistrationForm" method="get" action="RegisterEmployeeServlet">
+			<h1>Registration Form</h1>
+			<table>
+				<tr>
+					<td>Full name :</td>
+					<td><input type="text" name="full_name" /></td>
+				</tr>
+				<tr>
+					<td>Gender :</td>
+					<td><select name="gender">
+							<option value="female">Female</option>
+							<option value="male">Male</option>
+							<option value="other">Other</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Email Id :</td>
+					<td><input type="text" name="email" /></td>
+				</tr>
+				<tr>
+					<td>Password :</td>
+					<td><input type="password" name="password" /></td>
+				</tr>
+				<tr>
+					<td>Confirm Password :</td>
+					<td><input type="password" name="repass" /></td>
+				</tr>
+				<tr>
+					<td>Contact Number :</td>
+					<td><input type="text" name="contact_number" /></td>
+				</tr>
+				<tr>
+					<td>Organization :</td>
+					<td><select name="org">
+							<option value="Org1">Org1</option>
+							<option value="Org2">Org2</option>
+							<option value="Org3">Org3</option>
+							<option value="Org4">Org4</option>
+					</select></td>
+				</tr>
+			</table>
+			<br> <input type="submit" value="Register"/>
+			<br><h2><a href='LoginPage.html'>Login Here</a></h2>
+		</form>
+	</div>
+</body>
+</html>
