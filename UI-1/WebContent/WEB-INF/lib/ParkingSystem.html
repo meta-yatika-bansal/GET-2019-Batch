@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Metacube Parking System</title>
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<div style="border: thin solid purple">
+		<span><a href="#addEmployee">Add Employee</a></span> <span><a
+			href="#addVehicle">Add Vehicle</a></span> <span><a href="#feedback">Give
+				Feedback</a></span> <span><a href="#price">Pricing</a></span>
+	</div>
+
+	<!-- Covering Image -->
+	<div>
+		<img src="C:\Users\Yatika\Downloads\rose.jpeg" alt="Covering Image" style="width: 100%"/>
+	</div>
+
+	<!-- Add Employee  -->
+	<div align="center" id="addEmployee" >
+		<form name="RegistrationForm">
+			<h1>Registration Form</h1>
+			<table>
+				<tr>
+					<td><label>Full name :</label></td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td><label>Gender :</label></td>
+					<td><select name="gender">
+							<option selected>[choose yours]</option>
+							<option>Female</option>
+							<option>Male</option>
+							<option>Other</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Email Id :</label></td>
+					<td><input type="email" name="mail" /></td>
+				</tr>
+				<tr>
+					<td><label>Password :</label></td>
+					<td><input type="password" name="pass" /></td>
+				</tr>
+				<tr>
+					<td><label>Confirm Password :</label></td>
+					<td><input type="password" name="repass" /></td>
+				</tr>
+				<tr>
+					<td><label>Contact Number :</label></td>
+					<td><input type="tel" name="contact" /></td>
+				</tr>
+			</table>
+			<br> <input type="button" value="Register" />
+		</form>
+	</div>
+
+	<!-- Add Vehicle -->
+	<div align="center" id="addVehicle">
+		<form name="VehicleDetailForm">
+			<h1>Vehicle Details Form</h1>
+			<table>
+				<tr>
+					<td><label>Name :</label></td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td><label>Type :</label></td>
+					<td><select name="type">
+							<option selected>[choose yours]</option>
+							<option value="cycle">Cycle</option>
+							<option value="motor_cycle">MotorCycle</option>
+							<option value="four_wheelers">Four Wheelers</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Vehicle Number :</label></td>
+					<td><input type="number" name="number" /></td>
+				</tr>
+				<tr>
+					<td><label>Employee Id :</label></td>
+					<td><input type="text" name="id" /></td>
+				</tr>
+				<tr>
+					<td><label>Identification :</label></td>
+					<td><textarea name="detail"></textarea></td>
+				</tr>
+			</table>
+			<br> <input type="button" value="Submit" />
+		</form>
+	</div>
+
+	<!-- Feedback -->
+	<div align="center" id="feedback">
+		<form name="FeedbackForm">
+			<h1>Get In Touch</h1>
+			<table>
+				<tr>
+					<td><label>Name :</label></td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td><label>Email :</label></td>
+					<td><input type="email" name="mail" /></td>
+				</tr>
+				<tr>
+					<td><label>Subject :</label></td>
+					<td><input type="text" name="subject" /></td>
+				</tr>
+				<tr>
+					<td><label>Message :</label></td>
+					<td><textarea name="msg"></textarea></td>
+				</tr>
+			</table>
+			<br> <input type="button" value="Send Email" />
+		</form>
+	</div>
+
+	<!-- Pricing -->
+	<div align="center" id="price">
+
+		<!-- Cycle Pricing -->
+		<div align="center" id="cycle">
+			<h1>Cycle</h1>
+			<span><b>$100</b></span> <br>
+			<span><b>/month</b></span> <br><br>
+			<span><em>$5 Daily</em></span> <br>
+			<span><em>$100 Monthly</em></span> <br>
+			<span><em>$500 Yearly</em></span><br><br>
+            <input type="button" value="Purchase Now" />
+		</div>
+
+		<!-- MotorCycle Pricing -->
+		<div align="center" id="motorcycle">
+		<h1>MotorCycle</h1>
+			<span><b>$200</b></span> <br>
+			<span><b>/month</b></span> <br><br>
+			<span><em>$10 Daily</em></span> <br>
+			<span><em>$200 Monthly</em></span> <br>
+			<span><em>$1000 Yearly</em></span><br><br>
+            <input type="button" value="Purchase Now" />
+		</div>
+
+		<!-- FourWheeler Pricing -->
+		<div align="center" id="fourwheeler">
+		<h1>Four Wheelers</h1>
+			<span><b>$500</b></span> <br>
+			<span><b>/month</b></span> <br><br>
+			<span><em>$20 Daily</em></span> <br>
+			<span><em>$500 Monthly</em></span> <br>
+			<span><em>$3500 Yearly</em></span><br><br>
+            <input type="button" value="Purchase Now" />
+		</div>
+	</div>
+</body>
+</html>
