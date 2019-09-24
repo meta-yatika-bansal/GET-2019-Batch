@@ -1,0 +1,95 @@
+nav{
+    position: sticky;
+    position: -webkit-sticky;
+    border: thin solid;
+    background-color: lightskyblue;
+    width: 100%;
+    overflow: auto;
+    top: 0%;
+}
+
+a{
+    font-style: oblique;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    float: left;
+    width:25%;
+    color:black;
+    text-align: center;
+    line-height: 200%;
+}
+
+img{
+    width: 100%;
+}
+
+.price{
+    box-sizing: border-box;
+    width: 31.333%;
+    margin:0.5%;
+    padding: 0.5%;
+    line-height: 200%;
+    border:thick solid lightskyblue;
+    border-radius: 10px;
+    float: left;
+    text-align: center;
+}
+
+.button{
+    color:lightskyblue;
+    background-color: white;
+    padding:4px;
+    font-size:medium;
+    border-radius: 5px;
+}
+
+button{
+    color:white;
+    background-color: lightskyblue;
+    padding:4px;
+    font-size:medium;
+    border-radius: 5px;
+}
+
+.circle{
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border:thin solid lightskyblue;
+  display: inline-block;
+}
+
+#employeeForm,#vehicleForm,#feedbackForm{
+    display:none;
+    box-sizing: border-box;
+    border: 10px solid lightskyblue;
+    width:80%;
+    padding-left: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin:10%;
+}
+
+#pricingForm{
+    display:none;
+}
+
+#icon{
+    width:20%;
+    padding-top: 2%;
+    padding-bottom: 5%;   
+    padding-right: 2%;
+    float: right;
+}
+
+.toggle{
+    display:block;
+    background-color: black;
+    color:white;
+    line-height: 400%;
+    width:100%;
+    font-size:larger;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    text-align: center;
+}
