@@ -6,15 +6,15 @@ jobs:
     parameters:
         nameToPrint:
             type: string
-            default: ìhello worldî
+            default: ‚Äúhello world‚Äù
     steps:
-        -run: 
-            name : "print hello"
+        - run: 
+            name : print hello
             command : echo <<parameters.nameToPrint>>
 
 workflows:
     version: 2
     helloFlow:
       jobs:
-        -welcome:
-           nameToPrint : ìhello metacubeî
+        - welcome:
+           nameToPrint : ‚Äúhello metacube‚Äù
