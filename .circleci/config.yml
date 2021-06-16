@@ -2,19 +2,19 @@ version : 2.1
 
 jobs:
   welcome:
-     machine : true
-     parameters:
+    machine : true
+    parameters:
         name_to_print:
             type: string
             default: “hello world”
-     steps:
+    steps:
         -run: 
             name : "print hello"
             command : echo <<parameters.name_to_print>>
 
 workflows:
-   version: 2
-   workflow1:
+    version: 2
+    workflow1:
       jobs:
         -welcome:
            name_to_print : “hello metacube”
