@@ -2,6 +2,7 @@ version : 2.1
 
 jobs:
   welcome:
+     machine : true
      parameters:
          name_to_print:
             type: string
