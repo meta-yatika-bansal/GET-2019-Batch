@@ -12,9 +12,9 @@ jobs:
             name : "print hello"
             command : echo <<parameters.name_to_print>>
 
-workflows:
+workflows
+   version: 2
    workflow1:
-      version: 2
       jobs:
         -welcome:
            name_to_print : “hello metacube”
