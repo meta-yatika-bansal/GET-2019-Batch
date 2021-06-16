@@ -4,17 +4,17 @@ jobs:
   welcome:
     machine : true
     parameters:
-        name_to_print:
+        nameToPrint:
             type: string
             default: “hello world”
     steps:
         -run: 
             name : "print hello"
-            command : echo <<parameters.name_to_print>>
+            command : echo <<parameters.nameToPrint>>
 
 workflows:
     version: 2
-    workflow1:
+    helloFlow:
       jobs:
         -welcome:
-           name_to_print : “hello metacube”
+           nameToPrint : “hello metacube”
