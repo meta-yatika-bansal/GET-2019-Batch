@@ -8,12 +8,12 @@ jobs:
             default: “hello world”
      steps:
          -run: 
-             name : print hello
-              Command : echo <<parameters.name_to_print>>
+             name : "print hello"
+             command : echo <<parameters.name_to_print>>
 
 workflows:
    workflow1:
       version: 2
        jobs:
          -welcome:
-            name_to_print : “ hello metacube”
+            name_to_print : “hello metacube”
