@@ -1,0 +1,43 @@
+NORMALIZATION
+
+Normalization is the process of organizing data in a database. This includes creating tables and establishing relationships between those tables according to rules designed both to protect the data and to make the database more flexible by eliminating redundancy and inconsistent dependency.
+Redundant data wastes disk space and creates maintenance problems.
+Inconsistent dependencies can make data difficult to access because the path to find the data may be missing or broken. 
+
+TYPES OF NORMALIZATION
+
+FIRST NORMAL FORM  
+ Eliminate repeating groups in individual tables.
+Create a separate table for each set of related data.
+Identify each set of related data with a primary key.
+Do not use multiple fields in a single table to store similar data. For example, to track an inventory item that may come from two possible sources, an inventory record may contain fields for Vendor Code 1 and Vendor Code 2. 
+What happens when you add a third vendor? Adding a field is not the answer; it requires program and table modifications and does not smoothly accommodate a dynamic number of vendors. Instead, place all vendor information in a separate table called Vendors, then link inventory to vendors with an item number key, or vendors to inventory with a vendor code key.
+
+SECOND NORMAL FORM
+Create separate tables for sets of values that apply to multiple records.
+Relate these tables with a foreign key.
+Records should not depend on anything other than a table's primary key (a compound key, if necessary). For example, consider a customer's address in an accounting system. The address is needed by the Customers table, but also by the Orders, Shipping, Invoices, Accounts Receivable, and Collections tables. Instead of storing the customer's address as a separate entry in each of these tables, store it in one place, either in the Customers table or in a separate Addresses table.
+
+THIRD NORMAL FORM
+Eliminate fields that do not depend on the key.
+Values in a record that are not part of that record's key do not belong in the table. In general, any time the contents of a group of fields may apply to more than a single record in the table, consider placing those fields in a separate table. 
+For example, in an Employee Recruitment table, a candidate's university name and address may be included. But you need a complete list of universities for group mailings. If university information is stored in the Candidates table, there is no way to list universities with no current candidates. Create a separate Universities table and link it to the Candidates table with a university code key. 
+
+BCNF(BOYCE CODD NORMAL FORM)
+BCNF is the advance version of 3NF. It is stricter than 3NF.
+A table is in BCNF if every functional dependency X ? Y, X is the super key of the table.
+For BCNF, the table should be in 3NF, and for every Functional Dependency, LHS is super key.
+Suppose there is a company wherein employees work in more than one department.Functional dependencies: 
+emp_id -> emp_nationality
+emp_dept -> {dept_type, dept_no_of_emp}
+Candidate key: {emp_id, emp_dept}
+The table is not in BCNF as neither emp_id nor emp_dept alone are keys.
+
+To make the table comply with BCNF we need to break the table in three tables such that the functional dependencies:
+emp_id -> emp_nationality
+emp_dept -> {dept_type, dept_no_of_emp}
+Candidate keys:
+For first table: emp_id
+For second table: emp_dept
+For third table: {emp_id, emp_dept}
+This is now in BCNF as in both the functional dependencies left side part is a key.
