@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Metacube Parking System</title>
+<script>
+
+	/*Validates the Fields in Registration Form*/
+	function validation() {
+		var isValid = true;
+		var name = document.forms["RegistrationForm"]["name"].value;
+		var mail = document.forms["RegistrationForm"]["mail"].value;
+		var contact = document.forms["RegistrationForm"]["contact"].value;
+		var pass = document.forms["RegistrationForm"]["pass"].value;
+		var repass = document.forms["RegistrationForm"]["repass"].value;
+		if (name.length < 2 || !isNaN(name)) {
+			alert("Enter name properly!");
+			isValid = false;
+		} else if (mail.length < 8 || mail.indexOf('@') == -1
+				|| mail.indexOf('.') == -1) {
+			alert("Enter email properly!");
+			isValid= false;
+		} else if (contact.length < 8 || isNaN(contact)) {
+			alert("Enter contact properly!");
+			isValid=false;
+		} else if (pass.length < 8 || pass.search(/[0-9]/) == -1
+				|| pass.search(/[a-z]/) == -1 || pass.search(/[A-Z]/) == -1) {
+			alert("Enter password properly!");
+			isValid= false;
+		}else if (pass.localeCompare(repass) != 0){
+			alert("Enter same password!");
+			isValid= false;
+		}
+		
+		if(isValid){
+			document.getElementById("reg").innerHTML = "Successfully Registered! Your Registration id is 1";
+			document.getElementById("vehicle").style.display = "block";
+		}
+	}
+	
+     /*Displays Price of Plans Available*/
+     function showPrice(){
+		var option = document.forms["VehicleDetailForm"]["type"].value;
+		var daily ;
+		var monthly ;
+		var yearly ;
+		if("cycle" == option){
+			daily= 5;
+			monthly=100;
+			yearly=500;
+		}else if("motor_cycle" == option){
+			daily= 10 ;
+			monthly= 200;
+			yearly= 1000;
+		}else if("four_wheelers" == option){
+			daily= 20 ;
+			monthly= 500;
+			yearly= 3500;
+		}
+		
+		document.getElementById("reg").innerHTML = "";
+		document.getElementById("vehicle").innerHTML = "<div id = 'vehiclePlan'>"
+		+"<p>1. Select Plans in (INR)</p>"
+		+"<select id = 'plan' align='center'>"
+		+ "<option selected >[Plans]</option>"
+		+" <option  value= '"+ daily +"'/>" + daily + " Daily</option>"
+		+ " <option value= '"+ monthly +"'/>" + monthly + " Monthly</option>"
+		+ " <option value= '"+ yearly +"'/>" + yearly + " Yearly</option>"
+		+" </select></br></br>"
+		+ "<p>2. Do You Want To Change Currency</p>"
+		+"<select id='currency' align='center'>"
+		+"<option  value = 'INR'>INR</option>"
+		+ "<option  value= 'USD'>USD</option>"
+		+ " <option value= 'YEN'>YEN</option>"
+		+"</select>"
+		+"<input type='button' value = 'GetPass' onClick='getPass();'/>"
+		+"</div>";
+	}
+     
+      /* Displays Final Pass Price*/
+     function getPass(){
+    	 var plan = document.getElementById("plan").value;
+    	 var curr= document.getElementById("currency").value;
+    	 if("USD" == curr){
+    		 plan = document.getElementById("plan").value*0.014;
+    	 }else if("YEN" == curr){
+    		 plan = document.getElementById("plan").value*1.47;
+    	 }
+    	 
+    	 document.getElementById("vehiclePlan").innerHTML= "Your ticket price is : " + plan +" "+curr;
+     }
+     
+</script>
+</head>
+<body>
+	<div align="center" id="reg">
+		<form name="RegistrationForm">
+			<h1>Registration Form</h1>
+			<table>
+				<tr>
+					<td>Full name :</td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td>Gender :</td>
+					<td><select name="gender">
+							<option selected>[choose yours]</option>
+							<option>Female</option>
+							<option>Male</option>
+							<option>Other</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Email Id :</td>
+					<td><input type="text" name="mail" /></td>
+				</tr>
+				<tr>
+					<td>Password :</td>
+					<td><input type="password" name="pass" /></td>
+				</tr>
+				<tr>
+					<td>Confirm Password :</td>
+					<td><input type="password" name="repass" /></td>
+				</tr>
+				<tr>
+					<td>Contact Number :</td>
+					<td><input type="text" name="contact" /></td>
+				</tr>
+			</table>
+			<br> <input type="button" value="Register"
+				onClick="validation();" />
+		</form>
+	</div>
+
+	<div align="center" id="vehicle" hidden>
+		<form name="VehicleDetailForm">
+			<h1>Vehicle Details Form</h1>
+			<table>
+				<tr>
+					<td>Name :</td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td>Type :</td>
+					<td><select name="type">
+							<option selected>[choose yours]</option>
+							<option value="cycle">Cycle</option>
+							<option value="motor_cycle">MotorCycle</option>
+							<option value="four_wheelers">Four Wheelers</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Vehicle Number :</td>
+					<td><input type="text" name="number" /></td>
+				</tr>
+				<tr>
+					<td>Employee Id :</td>
+					<td><input type="text" name="id" /></td>
+				</tr>
+				<tr>
+					<td>Identification :</td>
+					<td><textarea name="detail"></textarea></td>
+				</tr>
+			</table>
+			<br> <input type="button" value="Submit" onClick="showPrice();" />
+		</form>
+	</div>
+</body>
+</html>
