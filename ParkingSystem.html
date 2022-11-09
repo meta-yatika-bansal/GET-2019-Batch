@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="ParkingSystem.css"/>
+<script type="text/javascript" src="ParkingSystem.js">
+</script>
+<title>Metacube Parking System</title>
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<nav >
+		<a href="#addEmployee">Add Employee</a><a
+			href="#addVehicle">Add Vehicle</a><a href="#feedback">Give
+				Feedback</a> <a href="#pricing">Pricing</a>
+			</nav>
+
+	<!-- Covering Image -->
+	<div>
+		<img src="C:\Users\Yatika\Downloads\rose.jpeg" alt="Covering Image" />
+	</div>
+
+	<!-- Add Employee  -->
+	<button  id="addEmployee"  class="toggle" onclick="hello('employeeForm');">Add Employee</button>
+
+	<div id="employeeForm"  >
+		<form name="RegistrationForm">
+			<h1>Registration Form</h1>
+			<table>
+				<tr>
+					<td><label>Full name :</label></td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td><label>Gender :</label></td>
+					<td><select name="gender">
+							<option selected>[choose yours]</option>
+							<option>Female</option>
+							<option>Male</option>
+							<option>Other</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Email Id :</label></td>
+					<td><input type="email" name="mail" /></td>
+				</tr>
+				<tr>
+					<td><label>Password :</label></td>
+					<td><input type="password" name="pass" /></td>
+				</tr>
+				<tr>
+					<td><label>Confirm Password :</label></td>
+					<td><input type="password" name="repass" /></td>
+				</tr>
+				<tr>
+					<td><label>Contact Number :</label></td>
+					<td><input type="tel" name="contact" /></td>
+				</tr>
+			</table>
+			<br> <button value="Register" >Register</button>
+		</form>
+	</div>
+
+	<!-- Add Vehicle -->
+	<button id="addVehicle"  class="toggle" onclick="hello('vehicleForm');">Add Vehicle</button>
+
+	<div id="vehicleForm"  >
+		<form name="VehicleDetailForm">
+			<h1>Vehicle Details Form</h1>
+			<table>
+				<tr>
+					<td><label>Name :</label></td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td><label>Type :</label></td>
+					<td><select name="type">
+							<option selected>[choose yours]</option>
+							<option value="cycle">Cycle</option>
+							<option value="motor_cycle">MotorCycle</option>
+							<option value="four_wheelers">Four Wheelers</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><label>Vehicle Number :</label></td>
+					<td><input type="number" name="number" /></td>
+				</tr>
+				<tr>
+					<td><label>Employee Id :</label></td>
+					<td><input type="text" name="id" /></td>
+				</tr>
+				<tr>
+					<td><label>Identification :</label></td>
+					<td><textarea name="detail"></textarea></td>
+				</tr>
+			</table>
+			<br> <button value="Submit" >Submit</button>
+		</form>
+	</div>
+
+	<!-- Feedback -->
+	<button  id="feedback" class="toggle" onclick="hello('feedbackForm');">Feedback</button>
+
+	<div id="feedbackForm"  >
+		<form name="FeedbackForm">
+			<img id= "icon" src="C:\Users\Yatika\Downloads\msg.webp" alt="Message icon" />
+			<h1>Get In Touch</h1>
+			<table>
+				<tr>
+					<td><label>Name :</label></td>
+					<td><input type="text" name="name" /></td>
+				</tr>
+				<tr>
+					<td><label>Email :</label></td>
+					<td><input type="email" name="mail" /></td>
+				</tr>
+				<tr>
+					<td><label>Subject :</label></td>
+					<td><input type="text" name="subject" /></td>
+				</tr>
+				<tr>
+					<td><label>Message :</label></td>
+					<td><textarea name="msg"></textarea></td>
+				</tr>
+			</table>
+			<br> <button value="Send Email" >Send Email</button>
+		</form>
+	</div>
+
+	<!-- Pricing -->
+	<button  id="pricing" class="toggle" onclick="hello('pricingForm');">Pricing</button>
+
+	<div id="pricingForm" >
+
+		<!-- Cycle Pricing -->
+		<div  class="price">
+			<h3>Cycle</h3>
+			<span class="circle"><b>$100</b> <br>
+			<b>/month</b></span> <br><br>
+			<span><em>$5 Daily</em></span> <br>
+			<span><em>$100 Monthly</em></span> <br>
+			<span><em>$500 Yearly</em></span><br>
+            <input class = "button" type="button" value="Purchase Now" />
+		</div>
+
+		<!-- MotorCycle Pricing -->
+		<div  class="price">
+		<h3>MotorCycle</h3>
+			<span class="circle"><b>$200</b> <br>
+			<b>/month</b></span> <br><br>
+			<span><em>$10 Daily</em></span> <br>
+			<span><em>$200 Monthly</em></span> <br>
+			<span><em>$1000 Yearly</em></span><br>
+            <input class = "button" type="button" value="Purchase Now" />
+		</div>
+
+		<!-- FourWheeler Pricing -->
+		<div  class="price">
+		<h3>FourWheelers</h3>
+			<span class="circle"><b>$500</b><br>
+			<b>/month</b></span> <br><br>
+			<span><em>$20 Daily</em></span> <br>
+			<span><em>$500 Monthly</em></span> <br>
+			<span><em>$3500 Yearly</em></span><br>
+            <input class = "button" type="button" value="Purchase Now" />
+		</div>
+	</div>
+</body>
+</html>
